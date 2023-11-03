@@ -1,4 +1,6 @@
 local lsp_zero = require('lsp-zero')
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 
 lsp_zero.on_attach(function(client, bufnr)
 	-- see :help lsp-zero-keybindings
@@ -15,15 +17,23 @@ require('mason-lspconfig').setup({
 	-- Replace the language servers listed here 
 	-- with the ones you want to install
 	ensure_installed = {
-		'jedi_language_server',
+		'pyright',
 		'clangd',
 		'omnisharp',
 		'lua_ls',
-		'marksman', 
+		'marksman',
 		'bashls'},
 		handlers = {
 			lsp_zero.default_setup,
 		},
 	})
 
-	require'lspconfig'.ghdl_ls.setup{}
+require'lspconfig'.ghdl_ls.setup{}
+
+-- super tab
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+  })
+})
