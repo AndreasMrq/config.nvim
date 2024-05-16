@@ -9,4 +9,4 @@ require('after.plugin.lspconfig')
 require('after.plugin.zero-lsp')
 
 
-vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme darkplus')

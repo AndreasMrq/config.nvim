@@ -22,6 +22,7 @@ require("lazy").setup(
 	build = ':TSUpdate'
 },
 { 'rose-pine/neovim', as = 'rose-pine' },
+{ 'martinsione/darkplus.nvim', as = 'darkplus' },
 {
 	'ThePrimeagen/harpoon',
 	dependencies = {{ 'nvim-lua/plenary.nvim'}}

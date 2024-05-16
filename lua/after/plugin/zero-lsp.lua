@@ -22,7 +22,8 @@ require('mason-lspconfig').setup({
 		'omnisharp',
 		'lua_ls',
 		'marksman',
-		'bashls'},
+		'bashls',
+		'haskell-language-server'},
 		handlers = {
 			lsp_zero.default_setup,
 		},
