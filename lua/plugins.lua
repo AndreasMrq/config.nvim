@@ -14,33 +14,56 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
 {
-	{'nvim-telescope/telescope.nvim', tag = '0.1.6',
-	dependencies = { {'nvim-lua/plenary.nvim'} }
-},
-{
-	'nvim-treesitter/nvim-treesitter',
-	build = ':TSUpdate'
-},
-{ 'rose-pine/neovim', as = 'rose-pine' },
-{ 'martinsione/darkplus.nvim', as = 'darkplus' },
-{
-	'ThePrimeagen/harpoon',
-	dependencies = {{ 'nvim-lua/plenary.nvim'}}
-},
-{
-	'VonHeikemen/lsp-zero.nvim',
-	branch = 'v3.x',
-	dependencies = {
-		{'williamboman/mason.nvim'},
-		{'williamboman/mason-lspconfig.nvim'},
-		-- LSP Support
-		{'neovim/nvim-lspconfig'},
-		-- Autocompletion
-		{'hrsh7th/nvim-cmp'},
-		{'hrsh7th/cmp-nvim-lsp'},
-		{'L3MON4D3/LuaSnip'},
-	}
-},
-
-	})
+  	'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+	{
+		'nvim-telescope/telescope.nvim', tag = '0.1.6',
+		dependencies = { 
+			{'nvim-lua/plenary.nvim'},
+		      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+		}
+	},
+	{
+		'nvim-treesitter/nvim-treesitter',
+		build = ':TSUpdate'
+	},
+	{ 'martinsione/darkplus.nvim', as = 'darkplus' },
+	{
+		'ThePrimeagen/harpoon',
+		dependencies = {{ 'nvim-lua/plenary.nvim'}}
+	},
+	{
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v3.x',
+		dependencies = {
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
+			-- LSP Support
+			{'neovim/nvim-lspconfig'},
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'L3MON4D3/LuaSnip'},
+		}
+	},
+	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
+	    'lewis6991/gitsigns.nvim',
+	    opts = {
+	      signs = {
+		add = { text = '+' },
+		change = { text = '~' },
+		delete = { text = '_' },
+		topdelete = { text = '‾' },
+		changedelete = { text = '~' },
+	      },
+	    },
+	  },
+	  { -- Useful plugin to show you pending keybinds.
+	    'folke/which-key.nvim',
+	    event = 'VeryLazy',
+	    init = function()
+		    vim.o.timeout = true
+		    vim.o.timeoutlen = 300
+	    end
+	  }
+})
 
