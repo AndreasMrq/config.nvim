@@ -1,6 +1,6 @@
 require('plugins')
-require('remap')
 require('setting')
+require('remap')
 require('after.plugin.telescope')
 require('after.plugin.treesitter')
 require('after.plugin.harpoon')

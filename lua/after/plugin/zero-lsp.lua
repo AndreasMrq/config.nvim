@@ -20,6 +20,7 @@ require('mason-lspconfig').setup({
 		'pyright',
 		'clangd',
 		'omnisharp',
+		'gopls',
 		'lua_ls',
 		'marksman',
 		'bashls',
